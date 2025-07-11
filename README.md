@@ -1,3 +1,3 @@
 # Flappy Bird
 
-This project is just a **Flappy Bird** implemented in Java, it's aim is to learning Jaa.
+This project implements a **Flappy Bird** game in Java. It's intended for learning purposes.
