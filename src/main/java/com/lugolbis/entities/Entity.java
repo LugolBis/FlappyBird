@@ -1,5 +1,5 @@
-package main.entities;
+package com.lugolbis.entities;
 
-public interface Move {
+public interface Entity {
     public void updateCoord(float translateX, float translateY);
 }

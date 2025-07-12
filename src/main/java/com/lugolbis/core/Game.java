@@ -1,12 +1,12 @@
-package main.core;
+package com.lugolbis.core;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import main.entities.Bird;
-import main.entities.Pipe;
-import main.entities.Ground;
-import main.entities.Move;
+import com.lugolbis.entities.Bird;
+import com.lugolbis.entities.Pipe;
+import com.lugolbis.entities.Ground;
+import com.lugolbis.entities.Entity;
 
 public class Game {
     public static void main(float xScreen, float yScreen) {
@@ -18,7 +18,7 @@ public class Game {
         float[] yInterval = {yScreen*0.1f, yScreen};
         Pipe pipe = Pipe.spwan(xInterval, yInterval, radius);
 
-        List<Move> gameEntities = new ArrayList<>();
+        List<Entity> gameEntities = new ArrayList<>();
         gameEntities.add(bird);
         gameEntities.add(ground);
         gameEntities.add(pipe);

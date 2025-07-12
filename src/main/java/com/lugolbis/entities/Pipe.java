@@ -1,8 +1,6 @@
-package main.entities;
+package com.lugolbis.entities;
 
-import main.entities.Move;
-
-public class Pipe implements Move {
+public class Pipe implements Entity {
     protected float x;
     protected float yTop;
     protected float yBottom;
@@ -27,9 +25,9 @@ public class Pipe implements Move {
         return new Pipe(xRandom, (yRandom - radius*1.2f), (yRandom + radius*0.1f), radius*0.8f);
     }
 
-    public void updateCoord(float xMove, float yMove) {
-        this.x += xMove;
-        this.yTop += yMove;
-        this.yBottom += yMove;
+    public void updateCoord(float xEntity, float yEntity) {
+        this.x += xEntity;
+        this.yTop += yEntity;
+        this.yBottom += yEntity;
     }
 }

@@ -1,8 +1,6 @@
-package main.entities;
+package com.lugolbis.entities;
 
-import main.entities.Move;
-
-public class Bird implements Move {
+public class Bird implements Entity {
     protected float x;
     protected float y;
     protected float radius;
@@ -19,8 +17,8 @@ public class Bird implements Move {
         return this.alive;
     }
 
-    public void updateCoord(float xMove, float yMove) {
+    public void updateCoord(float xEntity, float yEntity) {
         // We never change the position of the bird, this is the background who's move
-        this.y += yMove;
+        this.y += yEntity;
     }
 }
