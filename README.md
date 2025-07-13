@@ -1,4 +1,4 @@
-# Flappy Bird Clone in Java (FXGL)
+# Flappy Bird
 
 A simple Flappy Bird clone built using Java and [FXGL](https://github.com/AlmasB/FXGL), a game development framework for JavaFX.
 
