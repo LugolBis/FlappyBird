@@ -17,7 +17,7 @@ public class GameEntityFactory implements EntityFactory {
     @Spawns("background")
     public Entity newBackground(SpawnData data) {
         return FXGL.entityBuilder(data)
-            .view(new Rectangle(FXGL.getAppWidth(), FXGL.getAppHeight(), Color.AQUA))
+            .view(new Rectangle(FXGL.getAppWidth(), FXGL.getAppHeight(), Color.DEEPSKYBLUE))
             .build();
     }
 
@@ -33,7 +33,7 @@ public class GameEntityFactory implements EntityFactory {
         return FXGL.entityBuilder(data)
             .type(EntityType.PLAYER)
             .view(view)
-            .bbox(new HitBox(BoundingShape.box(size, size)))
+            .bbox(new HitBox(BoundingShape.box(size*0.9, size*0.9)))
             .with(new PlayerComponent())
             .collidable()
             .build();
@@ -47,18 +47,15 @@ public class GameEntityFactory implements EntityFactory {
         double x = data.getX();
         double y = data.getY();
 
-        // Entité maître (invisible)
         Entity master = FXGL.entityBuilder(data)
             .type(EntityType.PIPE_SET)
             .with(new PipeComponent())
             .build();
 
-        // Création des parties
         Entity topPipe = createPipePart(x, y - pipeHeight, pipeWidth, pipeHeight, EntityType.PIPE);
         Entity bottomPipe = createPipePart(x, y + gap, pipeWidth, pipeHeight, EntityType.PIPE);
-        Entity scoreZone = createScoreZone(x + pipeWidth, y, gap);
+        Entity scoreZone = createScoreZone(x + pipeWidth*2, y, gap);
 
-        // Lier les parties au composant maître
         master.getComponent(PipeComponent.class).setPipes(topPipe, bottomPipe, scoreZone);
         
         return master;

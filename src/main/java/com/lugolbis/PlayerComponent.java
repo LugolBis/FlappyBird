@@ -17,7 +17,7 @@ public class PlayerComponent extends Component {
     }
 
     public void fall() {
-        entity.translateY(30);
+        entity.translateY(50);
 
         if (entity.getRotation() < 90) {
             entity.rotateBy(4);

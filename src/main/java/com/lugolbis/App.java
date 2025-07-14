@@ -25,7 +25,6 @@ public class App extends GameApplication {
     private Entity player;
     private List<Entity> pipes;
 
-    private TimerAction playerUpdateAction;
     private TimerAction pipeSpawnAction;
     private TimerAction pipeUpdateAction;
 
@@ -67,11 +66,11 @@ public class App extends GameApplication {
 
         isGameOver = false;
         player = FXGL.spawn("player", FXGL.getAppWidth()/3, FXGL.getAppHeight()/4);
-        playerUpdateAction = FXGL.run(() -> updatePlayer(), Duration.seconds(0.2));
+        FXGL.run(() -> updatePlayer(), Duration.seconds(0.2));
 
         pipes = new ArrayList<>();
         pipeSpawnAction = FXGL.run(() -> {
-            double centerY = FXGL.random(150, FXGL.getAppHeight() - 150);
+            double centerY = FXGL.random(FXGL.getAppHeight()/3.5, FXGL.getAppHeight() - FXGL.getAppHeight()/3.5);
             pipes.add(FXGL.spawn("pipe", FXGL.getAppWidth(), centerY));
         }, Duration.seconds(2));
         pipeUpdateAction = FXGL.run(() -> updatePipes(), Duration.millis(10));
@@ -152,7 +151,7 @@ public class App extends GameApplication {
                 .buildAndPlay();
         });
 
-        FXGL.addUINode(text, 20, 50);
+        FXGL.addUINode(text, FXGL.getAppWidth()/2, 50);
     }
 
     public static void main(String[] args) {
